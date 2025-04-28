@@ -1,0 +1,36 @@
+﻿@model List<StudentWebApp.Models.Student>
+
+<h2>Student List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Roll No</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Sname</td>
+                    <td>@student.age</td>
+                    <td>@student.Phone</td>
+                    <td>@student.Rollno</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No Students Found</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("InsertStudent", "Student")" class="btn btn-primary">Insert New Student</a>

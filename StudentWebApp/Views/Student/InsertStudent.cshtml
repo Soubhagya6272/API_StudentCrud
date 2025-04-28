@@ -1,0 +1,36 @@
+﻿@model StudentWebApp.Models.Student
+
+<h2>Insert Student</h2>
+
+<form asp-action="InsertStudent" method="post">
+    <div>
+        <label>Name</label>
+        <input asp-for="Sname" class="form-control" />
+    </div>
+    <div>
+        <label>Age</label>
+        <input asp-for="age" class="form-control" />
+    </div>
+    <div>
+        <label>Phone</label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+    <div>
+        <label>Roll No</label>
+        <input asp-for="Rollno" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<a href="@Url.Action("StudentList", "Student")" class="btn btn-primary">Back To List</a>
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
