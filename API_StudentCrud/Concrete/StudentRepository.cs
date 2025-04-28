@@ -26,5 +26,18 @@ namespace API_StudentCrud.Concrete
             con.SaveChanges();
             return 1;
         }
+
+        public int UpdateStudent(Student student)
+        {
+            Student st = new Student();
+            st.Sname = student.Sname;
+            st.age = student.age;
+            st.Phone = student.Phone;
+            st.Rollno = student.Rollno;
+
+            con.Student_Master.Update(st);
+            con.SaveChanges();
+            return 1;
+        }
     }
 }

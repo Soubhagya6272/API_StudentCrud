@@ -9,27 +9,24 @@
             <th>Age</th>
             <th>Phone</th>
             <th>Roll No</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @if (Model != null && Model.Count > 0)
+        @foreach (var student in Model)
         {
-            foreach (var student in Model)
-            {
                 <tr>
                     <td>@student.Sname</td>
                     <td>@student.age</td>
                     <td>@student.Phone</td>
                     <td>@student.Rollno</td>
+                    <td>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@student.Sid">Edit</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@student.Sid">Delete</a>
+                    </td>
                 </tr>
-            }
         }
-        else
-        {
-            <tr>
-                <td colspan="5" class="text-center">No Students Found</td>
-            </tr>
-        }
+        
     </tbody>
 </table>
 
